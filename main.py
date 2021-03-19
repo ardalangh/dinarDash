@@ -23,8 +23,7 @@ running = True
 
 clock = pygame.time.Clock()
 
-bg = pygame.image.load("./assets/bg.jpegls
-").convert()
+bg = pygame.image.load("./assets/bg.jpeg").convert()
 
 
 while running:
