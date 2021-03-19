@@ -21,9 +21,9 @@ pygame.display.set_caption("Dinar Dash")
 
 running = True 
 
-clock - pygame.time.Clock()
+clock = pygame.time.Clock()
 
-bg = pygame.image.load("/assests/bg.png").convert()
+bg = pygame.image.load("./assets/bg.png").convert()
 
 
 while running:
