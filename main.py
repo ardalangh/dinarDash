@@ -23,6 +23,8 @@ running = True
 
 clock - pygame.time.Clock()
 
+bg = pygame.image.load("/assests/bg.png").convert()
+
 
 while running:
     for event in pygame.event.get():
@@ -31,7 +33,7 @@ while running:
 
     
 
-
+    screen.blit(bg, [0,0])
 
 
 
