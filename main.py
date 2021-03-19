@@ -9,7 +9,7 @@ pygame.init()
 
 
 
-size = (700, 500)
+size = (1520, 980)
 
 screen = pygame.display.set_mode(size)
 pygame.display.set_caption("Dinar Dash")
@@ -23,7 +23,8 @@ running = True
 
 clock = pygame.time.Clock()
 
-bg = pygame.image.load("./assets/bg.png").convert()
+bg = pygame.image.load("./assets/bg.jpegls
+").convert()
 
 
 while running:
