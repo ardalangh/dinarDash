@@ -1,11 +1,15 @@
 import pygame 
 class Table:
     possible_caps = [2, 4, 6, 8]
-    possible_pos = [] # to be added later
+    possible_pos = [(400, 400),
+                    (900, 400),
+                    (900, 700),
+                    (400, 700)] # to be added later
     file_path = "./assets/tableSingle.PNG" 
 
 
-    def __init__(self, cap):
+    def __init__(self, cap, id):
+        self.id = id
         if cap not in Table.possible_caps:
             raise ValueError("The capacity of your table needs to in [2, 4, 6, 8]")
     
@@ -17,4 +21,4 @@ class Table:
 
     def draw(self, screen):
         table = pygame.image.load(Table.file_path).convert() 
-        screen.blit(table, [200,200])
+        screen.blit(table, Table.possible_pos[self.id])

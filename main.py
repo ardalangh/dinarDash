@@ -36,8 +36,15 @@ while running:
 
     screen.blit(bg, [0,0])
     
-    tb1 = Table(2)
+    tb1 = Table(2, 0)
+    tb2 = Table(2, 1)
+    tb3 = Table(2, 2)
+    tb4 = Table(2, 3)
+
     tb1.draw(screen)
+    tb2.draw(screen)
+    tb3.draw(screen)
+    tb4.draw(screen)
 
 
 
