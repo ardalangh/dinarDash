@@ -4,8 +4,8 @@ class Table:
     possible_pos = [(400, 400),
                     (900, 400),
                     (900, 700),
-                    (400, 700)] # to be added later
-    file_path = "./assets/tableSingle.PNG" 
+                    (400, 700)]
+    file_path = "./assets/table.PNG"
 
 
     def __init__(self, cap, id):
