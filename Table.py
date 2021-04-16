@@ -20,13 +20,13 @@ class Table:
         self.empty = True   # Table is empty (bool)
         self.guest_at = 0   # How many people are at this table (int)
         self.num = None     # The number of the table (int)
-        self.chairs = []    # list of all the chairs around the instance of the table class
+        self.chairs = [Chair(self, -1), Chair(self, 1)]    # list of all the chairs around the instance of the table class
 
     def draw(self, screen):
         for chair in self.chairs:
             chair.draw(screen)
         table = pygame.image.load(Table.file_path).convert()
-        screen.blit(table, Table.possible_pos[self.idNum])
+        screen.blit(table, Table.possible_pos[self.id])
 
     def initChairs(self):
         self.chairs.appemnd(Chair(self.determineLeftChairPos()[0],
