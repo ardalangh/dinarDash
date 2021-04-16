@@ -9,7 +9,7 @@ class Table:
                     (900, 400),
                     (900, 700),
                     (400, 700)]
-    file_path = "./assets/table.PNG"
+    file_path = "./assets/table.png"
 
 
 
@@ -38,6 +38,7 @@ class Table:
             chair.draw(screen)
         table = pygame.image.load(Table.file_path).convert()
         screen.blit(table, Table.possible_pos[self.id])
+        # pygame.draw.circle(screen, (0,0,0), Table.possible_pos[self.id], 10 )
 
     def initChairs(self):
         self.chairs.appemnd(Chair(self.determineLeftChairPos()[0],
