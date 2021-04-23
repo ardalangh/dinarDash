@@ -11,27 +11,19 @@ class Table:
                     (400, 700)]
     file_path = "./assets/table.png"
 
-
-
-
-
-
     def __init__(self, cap, idNum):
         self.id = idNum
         if cap not in Table.possible_caps:
             raise ValueError("The capacity of your table needs to in [2, 4, 6, 8]")
 
-        self.cap = cap      # The cap of the table (int)
-        self.empty = True   # Table is empty (bool)
-        self.guest_at = 0   # How many people are at this table (int)
-        self.num = None     # The number of the table (int)
-        self.chairs = [Chair(self, -1), Chair(self, 1)]    # list of all the chairs around the instance of the table class
-
+        self.cap = cap  # The cap of the table (int)
+        self.empty = True  # Table is empty (bool)
+        self.guest_at = 0  # How many people are at this table (int)
+        self.num = None  # The number of the table (int)
+        self.chairs = [Chair(self, -1), Chair(self, 1)]  # list of all the chairs around the instance of the table class
 
     def getPossiblePos(self):
         return Table.possible_pos
-
-
 
     def draw(self, screen):
         for chair in self.chairs:
