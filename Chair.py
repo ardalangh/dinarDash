@@ -23,5 +23,5 @@ class Chair:
             raise RuntimeError("Chair must face left or right")
 
     def draw(self, screen):
-        chair = pygame.image.load(self.filePath).convert()
+        chair = pygame.image.load(self.filePath).convert_alpha()
         screen.blit(chair, [self.x, self.y])

@@ -1,4 +1,6 @@
-import pygame 
+import pygame
+
+from Player import Player
 from Table import Table
 
 
@@ -26,17 +28,28 @@ clock = pygame.time.Clock()
 
 # bg = pygame.image.load("./assets/bg.jpeg").convert()
 
-
+player = Player()
 
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
 
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_RIGHT]:
+            player.moveRight()
+
+        if keys[pygame.K_LEFT]:
+            player.moveLeft()
+
+
+
+
 
     # screen.blit(bg, [0,0])
-    
+
     screen.fill((254,235,202,255))
+    player.draw(screen)
 
     tb1 = Table(2, 0)
     tb2 = Table(2, 1)
@@ -52,6 +65,9 @@ while running:
 
 
 
+
+
+    # pygame.d
     pygame.display.flip()
     clock.tick(60)
     

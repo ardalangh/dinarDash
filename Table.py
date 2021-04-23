@@ -28,7 +28,7 @@ class Table:
     def draw(self, screen):
         for chair in self.chairs:
             chair.draw(screen)
-        table = pygame.image.load(Table.file_path).convert()
+        table = pygame.image.load(Table.file_path).convert_alpha()
         screen.blit(table, Table.possible_pos[self.id])
         # pygame.draw.circle(screen, (0,0,0), Table.possible_pos[self.id], 10 )
 
