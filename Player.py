@@ -5,14 +5,20 @@ class Player:
     def __init__(self):
         self.x = 10
         self.y = 10
-        self.filePaths = [f"./assets/girlWalk{counter}.png" for counter in range(4)]
         self.moving = False
         self.movingTo = (None, None)
+        self.dir = "RIGHT"
+        self.img_counter = 0
 
 
+
+
+    def get_file_path(self):
+        return f"./assets/girlWalk{self.dir}{self.img_counter}.png"
 
     def draw(self, screen):
-        player = pygame.image.load(self.filePaths[0]).convert_alpha()
+        print(self.get_file_path())
+        player = pygame.image.load(self.get_file_path()).convert_alpha()
         # player = pygame.transform.scale(player, (90, 120))
         screen.blit(player, [self.x, self.y])
 
@@ -33,10 +39,13 @@ class Player:
     def update(self):
         if (self.moving):
             if (self.movingTo[0] < self.x):
-                self.x -= 2
+                self.dir = "LEFT"
+                self.x -= 5
             if (self.movingTo[0] > self.x):
-                self.x += 2
+                self.dir = "RIGHT"
+                self.x += 5
             if (self.movingTo[1] < self.y):
-                self.y -= 2
+                self.y -= 5
             if (self.movingTo[1] > self.y):
-                self.y += 2
+                self.y += 5
+            self.img_counter += 1 % 4

@@ -41,7 +41,7 @@ while running:
 
 
 
-
+    player.update()
     # screen.blit(bg, [0,0])
 
     screen.fill((254,235,202,255))
