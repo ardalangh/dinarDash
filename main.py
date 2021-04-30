@@ -35,13 +35,9 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-        keys = pygame.key.get_pressed()
-        if keys[pygame.K_RIGHT]:
-            player.moveRight()
-
-        if keys[pygame.K_LEFT]:
-            player.moveLeft()
-
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            mouse_pos = pygame.mouse.get_pos()
+            player.moveTo(mouse_pos)
 
 
 
