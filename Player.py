@@ -48,4 +48,7 @@ class Player:
                 self.y -= 5
             if (self.movingTo[1] > self.y):
                 self.y += 5
-            self.img_counter += 1 % 4
+            self.img_counter = (self.img_counter + 1) % 4
+
+            if (abs(self.movingTo[1] - self.y) <5 and abs(self.movingTo[0] - self.x) < 5):
+                self.moving = False;
