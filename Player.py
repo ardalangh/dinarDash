@@ -12,13 +12,11 @@ class Player:
         self.player_loaded = pygame.image.load(self.get_file_path()).convert_alpha()
         self.player_rect = self.player_loaded.get_rect()
 
-
     def get_file_path(self):
         return f"./assets/girlWalk{self.dir}{self.img_counter}.png"
 
     def draw(self, screen):
         screen.blit(self.player_loaded, [self.x, self.y])
-
 
     def moveLeft(self):
         self.x -= 10
@@ -26,12 +24,9 @@ class Player:
     def moveRight(self):
         self.x += 10
 
-
     def moveTo(self, mousePos):
         self.movingTo = mousePos
         self.moving = True
-
-
 
     def update(self):
         if (self.moving):
@@ -47,5 +42,5 @@ class Player:
                 self.y += 5
             self.img_counter = (self.img_counter + 1) % 4
 
-            if (abs(self.movingTo[1] - self.y) <5 and abs(self.movingTo[0] - self.x) < 5):
+            if (abs(self.movingTo[1] - self.y) < 5 and abs(self.movingTo[0] - self.x) < 5):
                 self.moving = False;

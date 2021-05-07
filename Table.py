@@ -21,6 +21,9 @@ class Table:
         self.guest_at = 0  # How many people are at this table (int)
         self.num = None  # The number of the table (int)
         self.chairs = [Chair(self, -1), Chair(self, 1)]  # list of all the chairs around the instance of the table class
+        self.table_loaded = pygame.image.load(Table.file_path).convert_alpha()
+        self.table_rect = self.table_loaded.get_rect()
+
 
     def getPossiblePos(self):
         return Table.possible_pos
@@ -28,8 +31,8 @@ class Table:
     def draw(self, screen):
         for chair in self.chairs:
             chair.draw(screen)
-        table = pygame.image.load(Table.file_path).convert_alpha()
-        screen.blit(table, Table.possible_pos[self.id])
+
+        screen.blit(self.table_loaded, Table.possible_pos[self.id])
         # pygame.draw.circle(screen, (0,0,0), Table.possible_pos[self.id], 10 )
 
     def initChairs(self):
