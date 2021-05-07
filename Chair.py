@@ -8,6 +8,9 @@ class Chair:
         self.facing = facing  # facing = -1  means Right facing = 1 means left
         self.taken = False  # no one sitting on the table
 
+
+
+
         self.y = table.getPossiblePos()[table.id][1]
 
         if self.facing == 1:
@@ -22,6 +25,11 @@ class Chair:
         else:
             raise RuntimeError("Chair must face left or right")
 
+
+        self.chair_loaded = pygame.image.load(self.filePath).convert_alpha()
+        self.chair_rect = self.chair_loaded.get_rect()
+
+
     def draw(self, screen):
-        chair = pygame.image.load(self.filePath).convert_alpha()
-        screen.blit(chair, [self.x, self.y])
+
+        screen.blit(self.chair_loaded, [self.x, self.y])
