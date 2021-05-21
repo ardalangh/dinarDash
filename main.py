@@ -30,6 +30,14 @@ clock = pygame.time.Clock()
 
 player = Player()
 
+
+tb1 = Table(2, 0)
+tb2 = Table(2, 1)
+tb3 = Table(2, 2)
+tb4 = Table(2, 3)
+
+obstacles = [tb1.table_rect, tb2.table_rect, tb3.table_rect, tb4.table_rect]
+
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -41,16 +49,13 @@ while running:
 
 
 
-    player.update()
+    player.update(obstacles)
     # screen.blit(bg, [0,0])
 
     screen.fill((254,235,202,255))
     player.draw(screen)
 
-    tb1 = Table(2, 0)
-    tb2 = Table(2, 1)
-    tb3 = Table(2, 2)
-    tb4 = Table(2, 3)
+
 
     tb1.draw(screen)
     tb2.draw(screen)

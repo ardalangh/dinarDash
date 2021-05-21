@@ -4,12 +4,9 @@ import Table
 
 class Chair:
     def __init__(self, table, facing):
-        self.table = table  # table instance that this chair is around
-        self.facing = facing  # facing = -1  means Right facing = 1 means left
-        self.taken = False  # no one sitting on the table
-
-
-
+        self.table = table        # table instance that this chair is around
+        self.facing = facing      # facing = -1  means Right facing = 1 means left
+        self.taken = False        # no one sitting on the table
 
         self.y = table.getPossiblePos()[table.id][1]
 
@@ -25,10 +22,8 @@ class Chair:
         else:
             raise RuntimeError("Chair must face left or right")
 
-
         self.chair_loaded = pygame.image.load(self.filePath).convert_alpha()
         self.chair_rect = self.chair_loaded.get_rect()
-
 
     def draw(self, screen):
 
