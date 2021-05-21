@@ -36,7 +36,7 @@ class Player:
 
     def update(self, obstacles):
         if self.moving:
-            move_to = self.move_helper(self.movingTo, 5)
+            move_to = self.move_helper(self.movingTo, 3)
             self.player_rect = self.player_rect.move(move_to[0], move_to[1])
             self.x, self.y = self.player_rect.x, self.player_rect.y
 

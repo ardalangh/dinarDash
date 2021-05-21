@@ -23,7 +23,8 @@ class Table:
         self.chairs = [Chair(self, -1), Chair(self, 1)]  # list of all the chairs around the instance of the table class
         self.table_loaded = pygame.image.load(Table.file_path).convert_alpha()
         self.table_rect = self.table_loaded.get_rect()
-
+        self.table_rect.x, self.table_rect.y = Table.possible_pos[self.id]
+        self.debug = True
 
     def getPossiblePos(self):
         return Table.possible_pos
@@ -32,6 +33,9 @@ class Table:
         for chair in self.chairs:
             chair.draw(screen)
 
+
+        if self.debug:
+            pygame.draw.rect(screen, (0, 0, 0), self.table_rect, 3)
         screen.blit(self.table_loaded, Table.possible_pos[self.id])
         # pygame.draw.circle(screen, (0,0,0), Table.possible_pos[self.id], 10 )
 
