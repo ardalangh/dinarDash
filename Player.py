@@ -2,9 +2,10 @@ import pygame
 
 
 class Player:
-    def __init__(self):
-        self.x = 10
-        self.y = 10
+    def __init__(self, testing):
+        self.testing = testing
+        self.x = 0
+        self.y = 0
         self.moving = False
         self.movingTo = (None, None)
         self.dir = "RIGHT"
@@ -14,6 +15,8 @@ class Player:
         self.debug = True
 
     def get_file_path(self):
+        if self.testing:
+            return f"../assets/girlWalk{self.dir}{self.img_counter}.png"
         return f"./assets/girlWalk{self.dir}{self.img_counter}.png"
 
     def moveLeft(self):
@@ -57,15 +60,30 @@ class Player:
             if abs(self.movingTo[1] - self.y) < 5 and abs(self.movingTo[0] - self.x) < 5:
                 self.moving = False;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     def move_helper(self, dest, vel):
         """
+            TESTED
             :param dest: destination coordinate where the player should move to
             :param vel: velocity of the movement
-            :returns a tuple indicating the change in coordinate in the next cycle
+            :returns a list indicating the change in coordinate in the next cycle
 
             checking X first then Y
         """
-        res = ()
+        res = [0,0]
         # check if x is not at dest
         if self.x != dest[0]:
             if self.x < dest[0]:
