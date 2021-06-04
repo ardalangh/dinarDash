@@ -7,8 +7,8 @@ class Table:
     possible_caps = [2, 4, 6, 8]
     ratio_map = [(0.4, 0.4),
                     (0.8, 0.4),
-                    (0.8, 0.6),
-                    (0.4, 0.6)]
+                    (0.8, 0.7),
+                    (0.4, 0.7)]
     file_path = "./assets/table.png"
 
     def __init__(self, cap, idNum):
@@ -26,13 +26,13 @@ class Table:
         # self.chairs = [Chair(self, -1), Chair(self, 1)]  # list of all the chairs around the instance of the table class
         self.table_loaded = pygame.image.load(Table.file_path).convert_alpha()
         self.table_rect = self.table_loaded.get_rect()
-        # self.table_rect.x, self.table_rect.y = Table.possible_pos[self.id]
+
         self.debug = True
 
 
     def calculate_pos(self, size):
-        self.pos[0] = Table.ratio_map[self.id][0] * size[0]
-        self.pos[1] = Table.ratio_map[self.id][1] * size[1]
+        self.pos = [Table.ratio_map[self.id][0] * size[0], Table.ratio_map[self.id][1] * size[1]]
+        self.table_rect.x, self.table_rect.y = self.pos
 
 
     # def getPossiblePos(self):
