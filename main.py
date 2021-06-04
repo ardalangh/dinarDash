@@ -6,17 +6,12 @@ from Table import Table
 
 pygame.init()
 
-
-
-
-
-
 screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 pygame.display.set_caption("Dinar Dash")
 
 
 
-
+size = (screen.get_width(), screen.get_height())
 
 
 running = True 
@@ -28,18 +23,21 @@ clock = pygame.time.Clock()
 player = Player(testing=False)
 
 tables = [Table(2, 0), Table(2, 1), Table(2, 2), Table(2, 3)]
-
+[t.calculate_pos(size) for t in tables]
 
 obstacles = []
 for t in tables:
     obstacles.append(t.table_rect)
-    for c in t.chairs:
-        obstacles.append(c.chair_rect)
+    # for c in t.chairs:
+    #     obstacles.append(c.chair_rect)
 
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                running = False
 
         if event.type == pygame.MOUSEBUTTONDOWN:
             mouse_pos = pygame.mouse.get_pos()
@@ -66,4 +64,5 @@ while running:
     # pygame.d
     pygame.display.flip()
     clock.tick(60)
-    
+
+pygame.quit()

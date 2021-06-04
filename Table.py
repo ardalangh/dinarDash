@@ -5,13 +5,16 @@ from Chair import Chair
 
 class Table:
     possible_caps = [2, 4, 6, 8]
-    possible_pos = [(400, 400),
-                    (900, 400),
-                    (900, 700),
-                    (400, 700)]
+    ratio_map = [(0.4, 0.4),
+                    (0.8, 0.4),
+                    (0.8, 0.6),
+                    (0.4, 0.6)]
     file_path = "./assets/table.png"
 
     def __init__(self, cap, idNum):
+
+
+        self.pos =  [0, 0]
         self.id = idNum
         if cap not in Table.possible_caps:
             raise ValueError("The capacity of your table needs to in [2, 4, 6, 8]")
@@ -20,23 +23,29 @@ class Table:
         self.empty = True     # Table is empty (bool)
         self.guest_at = 0     # How many people are at this table (int)
         self.num = None       # The number of the table (int)
-        self.chairs = [Chair(self, -1), Chair(self, 1)]  # list of all the chairs around the instance of the table class
+        # self.chairs = [Chair(self, -1), Chair(self, 1)]  # list of all the chairs around the instance of the table class
         self.table_loaded = pygame.image.load(Table.file_path).convert_alpha()
         self.table_rect = self.table_loaded.get_rect()
-        self.table_rect.x, self.table_rect.y = Table.possible_pos[self.id]
+        # self.table_rect.x, self.table_rect.y = Table.possible_pos[self.id]
         self.debug = True
 
-    def getPossiblePos(self):
-        return Table.possible_pos
+
+    def calculate_pos(self, size):
+        self.pos[0] = Table.ratio_map[self.id][0] * size[0]
+        self.pos[1] = Table.ratio_map[self.id][1] * size[1]
+
+
+    # def getPossiblePos(self):
+    #     return Table.possible_pos
 
     def draw(self, screen):
-        for chair in self.chairs:
-            chair.draw(screen)
+        # for chair in self.chairs:
+        #     chair.draw(screen)
 
 
         if self.debug:
             pygame.draw.rect(screen, (0, 0, 0), self.table_rect, 3)
-        screen.blit(self.table_loaded, Table.possible_pos[self.id])
+        screen.blit(self.table_loaded, self.pos)
         # pygame.draw.circle(screen, (0,0,0), Table.possible_pos[self.id], 10 )
 
     def initChairs(self):
