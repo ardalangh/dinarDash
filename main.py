@@ -25,6 +25,23 @@ player = Player(testing=False)
 tables = [Table(2, 0), Table(2, 1), Table(2, 2), Table(2, 3)]
 [t.calculate_pos(size) for t in tables]
 
+
+
+
+kitchen = pygame.image.load("assets/kitchen.png").convert_alpha()
+
+
+
+
+
+
+
+
+
+
+
+
+
 obstacles = []
 for t in tables:
     obstacles.append(t.table_rect)
@@ -49,6 +66,7 @@ while running:
     # screen.blit(bg, [0,0])
 
     screen.fill((254,235,202,255))
+    screen.blit(kitchen, (0, size[1]//4))
     player.draw(screen)
 
 
