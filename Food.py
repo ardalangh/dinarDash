@@ -17,3 +17,5 @@ class Food:
             screen.blit(self.img_loaded, [table.table_rect.x, table.table_rect.y])
         elif (pos == "right"):
             screen.blit(self.img_loaded, [table.table_rect.x + 50, table.table_rect.y])
+
+    # def draw_on_kitchen_table(self, )
